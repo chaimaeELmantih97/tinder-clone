@@ -1,18 +1,27 @@
 import "./App.css";
 import Header from "./Header";
+import SwipeButtons from "./SwipeButtons";
+import TinderCards from "./TinderCards";
+import Chat from "./Chat";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <h1>Tinder clone</h1>
-      {/* header */}
+      {/* put something outside the router 
+      if you want to display it on all pages */}
       <Header />
-      {/* tinder cards */}
-
-      {/* buttons */}
-
-      {/* chat screen */}
-
-      {/* indivisual chat screen */}
+      <Router>
+        <Switch>
+          <Route path="/chat">
+            <Chat />
+          </Route>
+          {/* Default route as the bottom */}
+          <Route path="/">
+            <TinderCards />
+            <SwipeButtons />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
